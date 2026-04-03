@@ -11,25 +11,16 @@
   --spacing-md: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-primary: #0a0a0a;
-    --color-text-primary: #ededed;
-    --color-text-secondary: #9ca3af;
-    --color-border-primary: #2a2a2a;
-  }
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --color-bg-primary: #0a0a0a;
+  --color-text-primary: #ededed;
+  --color-text-secondary: #9ca3af;
+  --color-border-primary: #2a2a2a;
 }
 
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+  transition: background 0.3s ease, color 0.3s ease;
 }

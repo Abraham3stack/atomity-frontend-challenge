@@ -6,6 +6,7 @@ import Chart from "./Chart";
 import DataTable from "./DataTable";
 import { motion } from "framer-motion";
 import { tokens } from "@/tokens/tokens";
+import ThemeToggle from "./ThemeToggle";
 
 export default function FeatureSection() {
   const { data = [], isLoading, isError } = useApiData();
@@ -84,8 +85,12 @@ export default function FeatureSection() {
           {level === "namespace" && `${selectedCluster} - Namespace`}
           {level === "pod" && `${selectedCluster} - ${selectedNamespace} - Pods`}
         </motion.h2>
-        <div className="px-4 py-2 rounded-full border text-sm opacity-80">
-          Last 30 Days
+
+        <div className="flex items-center gap-3">
+          <div className="px-4 py-2 rounded-full border text-sm opacity-80">
+            Last 30 Days
+          </div>
+          <ThemeToggle />
         </div>
       </div>
 
