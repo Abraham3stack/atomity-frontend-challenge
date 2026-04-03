@@ -7,7 +7,7 @@ An interactive, animated cloud insights dashboard inspired by Atomity’s produc
 
 ## 🚀 Live Demo
 
-(Add your deployed link here after deploying to Vercel)
+[View Live Demo](https://atomity-frontend-challenge-snowy.vercel.app/)
 
 ---
 
@@ -20,6 +20,21 @@ This project implements a **scroll-triggered, animated feature section** that vi
 - **Pod level** → Detailed resource usage
 
 Users can **click to drill down** through each level, mimicking a real cloud monitoring dashboard.
+
+---
+
+## 🎯 Feature Choice
+
+I chose the cluster-to-namespace drill-down feature because it demonstrates hierarchical data visualization and interactive exploration, which are common patterns in cloud monitoring platforms. It allowed me to showcase both UI transitions and state-driven data transformations.
+
+---
+
+## 📚 Libraries & Decisions
+
+- **Framer Motion** → for smooth, declarative animations and scroll-triggered transitions
+- **TanStack Query** → for efficient data fetching, caching, and state management
+- **Tailwind CSS** → for rapid styling with responsive utilities and consistency
+- **Next.js** → for structured architecture and modern React patterns
 
 ---
 
@@ -167,11 +182,10 @@ Optimized for:
 
 ## 🚀 Future Improvements
 
-- Add real cloud metrics API
-- Improve chart interactivity (tooltips, hover states)
-- Add filtering and time-range controls
-- Enhance accessibility (ARIA roles, screen reader support)
-
+- Add real cloud metrics API instead of simulated transformations
+- Introduce tooltips and hover states for deeper data insights
+- Improve accessibility with ARIA roles and screen reader support
+- Add filtering and time-range controls for better usability
 ---
 
 ## 📦 Setup Instructions
@@ -191,7 +205,7 @@ npm run dev
 
 ---
 
-## 💡 Author Notes
+## 💡 Notes
 
 This project focuses on **frontend engineering fundamentals**, including:
 
