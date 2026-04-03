@@ -20,7 +20,7 @@ export default function Chart({ data, level, onClick }: Props) {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative h-64 mb-16"
+      className="relative h-48 md:h-64 mb-12 md:mb-16"
     >
       {/* Grid Lines */}
       <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
@@ -34,7 +34,7 @@ export default function Chart({ data, level, onClick }: Props) {
       </div>
 
       {/* Bars */}
-      <div className="relative flex items-end justify-between h-full gap-10 px-2">
+      <div className="relative flex items-end h-full gap-4 md:gap-10 px-2 overflow-x-auto md:overflow-visible">
         {data.map((item, index) => {
           const range = maxCpu - minCpu || 1;
           const normalized = (item.cpu - minCpu) / range;
@@ -43,7 +43,7 @@ export default function Chart({ data, level, onClick }: Props) {
           return (
             <div
               key={index}
-              className="flex flex-col items-center flex-1 cursor-pointer group h-full justify-end"
+              className="flex flex-col items-center min-w-[70px] md:flex-1 cursor-pointer group h-full justify-end"
               onClick={() => onClick(item.name)}
             >
               {/* Bar */}
@@ -55,14 +55,14 @@ export default function Chart({ data, level, onClick }: Props) {
                   delay: index * 0.1,
                   ease: "easeOut",
                 }}
-                className="w-14 rounded-2xl group-hover:scale-105"
+                className="w-10 md:w-14 rounded-2xl group-hover:scale-105"
                 style={{
                   background: tokens.colors.accentSuccess,
                 }}
               />
 
               {/* Label */}
-              <span className="mt-3 text-sm text-gray-400 group-hover:text-white transition">
+              <span className="mt-2 text-xs md:text-sm text-gray-400 group-hover:text-white transition text-center">
                 {item.name}
               </span>
             </div>

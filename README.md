@@ -1,36 +1,207 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Atomity Frontend Engineering Challenge
 
-First, run the development server:
+An interactive, animated cloud insights dashboard inspired by Atomity’s product demo. This project recreates a **drill-down analytics experience** (Cluster → Namespace → Pods) with smooth animations, dynamic data, and a clean SaaS-style UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Live Demo
+
+(Add your deployed link here after deploying to Vercel)
+
+---
+
+## 📌 Overview
+
+This project implements a **scroll-triggered, animated feature section** that visualizes cloud resource usage across different levels:
+
+- **Cluster level** → Overview of infrastructure
+- **Namespace level** → Grouped breakdown
+- **Pod level** → Detailed resource usage
+
+Users can **click to drill down** through each level, mimicking a real cloud monitoring dashboard.
+
+---
+
+## ✨ Features
+
+- Interactive **bar chart visualization**
+- **Drill-down navigation** (Cluster → Namespace → Pods)
+- **Dynamic data fetching** from API
+- **Caching with React Query (TanStack Query)**
+- Smooth **scroll + entrance animations (Framer Motion)**
+- **Dark / Light mode toggle** with persistence
+- Clean **token-based design system**
+- Fully **responsive layout**
+- Accessible and semantic HTML structure
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js (App Router)**
+- **TypeScript**
+- **Tailwind CSS (v4)**
+- **Framer Motion** (animations)
+- **TanStack Query (React Query)** (data fetching + caching)
+
+---
+
+## 🧠 Key Implementation Details
+
+### 1. Component Architecture
+
+```
+src/
+  components/
+    FeatureSection.tsx
+    Chart.tsx
+    DataTable.tsx
+    ThemeToggle.tsx
+  hooks/
+    useApiData.ts
+  tokens/
+    tokens.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Modular and reusable components
+- Clear separation of concerns
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Data Fetching & Caching
 
-## Learn More
+- Data fetched from a public API
+- Managed with **TanStack Query**
+- Prevents unnecessary re-fetching
+- Handles:
+  - Loading state
+  - Error state
+  - Cached responses
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Drill-down Logic
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+State-driven navigation:
 
-## Deploy on Vercel
+- `cluster → namespace → pod`
+- Dynamic data transformation per level
+- Click-based transitions between views
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. Animation Approach
+
+- **Framer Motion** used for:
+  - Scroll-triggered section entrance
+  - Staggered animations
+  - Smooth transitions
+- Designed to feel **natural and performant** (no jank)
+
+---
+
+### 5. Design System (Tokens)
+
+- CSS variables used for consistency:
+
+```
+--color-bg-primary
+--color-text-primary
+--color-accent-success
+--color-border-primary
+```
+
+- Referenced via `tokens.ts`
+- Enables easy theming and scalability
+
+---
+
+### 6. Dark Mode Implementation
+
+Dark mode is controlled via a **class-based approach**:
+
+- `.dark` class applied to `<html>`
+- Theme stored in `localStorage`
+
+#### Challenge Faced
+
+The app initially got stuck in dark mode due to:
+
+- Mismatch between React state and DOM
+- Persistent `.dark` class not resetting properly
+
+#### Solution
+
+- Forced reset of DOM class on mount
+- Synced state with `localStorage`
+- Used DOM (`classList.contains`) as source of truth
+
+---
+
+## 📱 Responsiveness
+
+Optimized for:
+
+- Desktop (1280px+)
+- Tablet (768px)
+- Mobile (375px)
+
+---
+
+## ♿ Accessibility
+
+- Semantic HTML (`section`, `h2`, etc.)
+- Keyboard-friendly interactions
+- Respects `prefers-reduced-motion`
+
+---
+
+## ⚖️ Trade-offs
+
+- Used simulated data transformations for hierarchy instead of real backend
+- Focused on a single feature section instead of full application
+- Prioritized animation quality over feature quantity
+
+---
+
+## 🚀 Future Improvements
+
+- Add real cloud metrics API
+- Improve chart interactivity (tooltips, hover states)
+- Add filtering and time-range controls
+- Enhance accessibility (ARIA roles, screen reader support)
+
+---
+
+## 📦 Setup Instructions
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 📌 Submission Includes
+
+- ✅ GitHub repository
+- ✅ Live demo (Vercel)
+- ✅ Detailed README
+
+---
+
+## 💡 Author Notes
+
+This project focuses on **frontend engineering fundamentals**, including:
+
+- Component design
+- State management
+- Animation craftsmanship
+- Real-world UI patterns
+
+Built to reflect how modern SaaS dashboards are structured and experienced.
+
+## 💡 Author
+
+Abraham Ogbu

@@ -71,31 +71,33 @@ export default function FeatureSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-6xl mx-auto px-6 py-20"
+      className="w-full max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-20"
       style={{ color: tokens.colors.textPrimary }}
     >
       {/* Title */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-semibold tracking-tight"
+          className="text-2xl md:text-4xl font-semibold tracking-tight"
         >
           {level === "cluster" && "Cluster"}
           {level === "namespace" && `${selectedCluster} - Namespace`}
           {level === "pod" && `${selectedCluster} - ${selectedNamespace} - Pods`}
         </motion.h2>
 
-        <div className="flex items-center gap-3">
-          <div className="px-4 py-2 rounded-full border text-sm opacity-80">
-            Last 30 Days
+        <div className="flex items-center justify-between w-full md:w-auto gap-3">
+          <div className="flex items-center justify-between w-full md:w-auto gap-3">
+            <div className="px-4 py-2 rounded-full border text-sm opacity-80">
+              Last 30 Days
+            </div>
+            <ThemeToggle />
           </div>
-          <ThemeToggle />
         </div>
       </div>
 
       {/* Aggregation badge */}
-      <div className="mb-10">
+      <div className="mb-6 md:mb-10">
         <div className="inline-block px-4 py-2 rounded-lg border text-sm">
           <span className="opacity-60">Aggregated by:</span>{" "}
           <span className="font-medium capitalize">{level}</span>
@@ -114,7 +116,7 @@ export default function FeatureSection() {
               setSelectedCluster(null);
             }
           }}
-          className="mb-6 text-sm opacity-70 hover:opacity-100 transition"
+          className="mb-4 md:mb-6 text-sm opacity-70 hover:opacity-100 transition"
         >
           ← Back
         </button>

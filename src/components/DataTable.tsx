@@ -6,17 +6,17 @@ import { tokens } from "@/tokens/tokens";
 export default function DataTable({ data }: { data: any[] }) {
   return (
     <div className="overflow-x-auto border rounded-xl">
-      <table className="w-full text-sm">
+      <table className="w-full min-w-[720px] text-xs md:text-sm">
         <thead className="text-xs uppercase tracking-wide opacity-70">
           <tr>
-            <th className="p-3 text-left">Cluster</th>
-            <th className="p-3">CPU</th>
-            <th className="p-3">RAM</th>
-            <th className="p-3">Storage</th>
-            <th className="p-3">Network</th>
-            <th className="p-3">GPU</th>
-            <th className="p-3">Efficiency</th>
-            <th className="p-3">Total</th>
+            <th className="p-2 md:p-3 text-left whitespace-nowrap">Cluster</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">CPU</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">RAM</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">Storage</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">Network</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">GPU</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">Efficiency</th>
+            <th className="p-2 md:p-3 whitespace-nowrap">Total</th>
           </tr>
         </thead>
 
@@ -32,20 +32,20 @@ export default function DataTable({ data }: { data: any[] }) {
             return (
               <motion.tr
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className="border-t hover:bg-white/5 transition"
                 style={{ borderColor: tokens.colors.borderPrimary }}
               >
-                <td className="p-3">{item.name}</td>
-                <td className="p-3">{item.cpu}</td>
-                <td className="p-3">{item.ram}</td>
-                <td className="p-3">{item.storage}</td>
-                <td className="p-3">{item.network}</td>
-                <td className="p-3">{item.gpu}</td>
-                <td className="p-3">{item.efficiency}</td>
-                <td className="p-3 font-semibold">${total}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.name}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.cpu}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.ram}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.storage}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.network}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.gpu}</td>
+                <td className="p-2 md:p-3 whitespace-nowrap">{item.efficiency}</td>
+                <td className="p-2 md:p-3 font-semibold whitespace-nowrap">${total}</td>
               </motion.tr>
             );
           })}
