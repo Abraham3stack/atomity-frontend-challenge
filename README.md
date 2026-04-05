@@ -1,13 +1,13 @@
+# Cloud Cost Insights Dashboard
 
-# Atomity Frontend Engineering Challenge
-
-An interactive, animated cloud insights dashboard inspired by Atomity’s product demo. This project recreates a **drill-down analytics experience** (Cluster → Namespace → Pods) with smooth animations, dynamic data, and a clean SaaS-style UI.
+An interactive, animated cloud insights dashboard showcasing drill-down analytics (Cluster → Namespace → Pods) with smooth animations, dynamic data, and a clean SaaS-style UI.
 
 ---
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://atomity-frontend-challenge-snowy.vercel.app/)
+[View Live Demo – Cloud Cost Dashboard](https://cost-dashboard-app.vercel.app
+/)
 
 ---
 
@@ -20,6 +20,12 @@ This project implements a **scroll-triggered, animated feature section** that vi
 - **Pod level** → Detailed resource usage
 
 Users can **click to drill down** through each level, mimicking a real cloud monitoring dashboard.
+
+---
+
+## 📌 Context
+
+This project was originally built as part of a frontend engineering assessment and has since been refined into a standalone portfolio project. It demonstrates real-world dashboard design, interactive data exploration, and modern frontend architecture.
 
 ---
 
@@ -197,7 +203,7 @@ npm run dev
 
 ---
 
-## 📌 Submission Includes
+## 📌 Project Links
 
 - ✅ GitHub repository
 - ✅ Live demo (Vercel)
